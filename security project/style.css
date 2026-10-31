@@ -1,0 +1,746 @@
+
+/* -----------------------------------------------------
+   1. استيراد الخط العربي
+   ----------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+
+/* -----------------------------------------------------
+   2. ضبط الخط والاتجاه العام
+   ----------------------------------------------------- */
+html,
+body,
+[class*="css"],
+[class*="st-"] {
+    font-family: 'Cairo', sans-serif !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+
+/* -----------------------------------------------------
+   3. إخفاء أدوات Streamlit الافتراضية
+   ----------------------------------------------------- */
+header[data-testid="stHeader"],
+.stDeployButton,
+[data-testid="stToolbarActions"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+#MainMenu,
+footer {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* -----------------------------------------------------
+   4. إخفاء التنقل الافتراضي داخل القائمة الجانبية
+   ----------------------------------------------------- */
+[data-testid="stSidebarNav"],
+[data-testid="stSidebarNavSeparator"],
+ul[data-testid="stSidebarNavItems"],
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stSidebarHeader"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* -----------------------------------------------------
+   5. خلفية التطبيق
+   ----------------------------------------------------- */
+.stApp {
+    background-color: #f1f6fc !important;
+
+    background-image:
+        radial-gradient(
+            at 0% 0%,
+            rgba(2, 132, 199, 0.05) 0px,
+            transparent 50%
+        ),
+        radial-gradient(
+            at 100% 100%,
+            rgba(15, 23, 42, 0.04) 0px,
+            transparent 50%
+        ) !important;
+}
+
+
+/* -----------------------------------------------------
+   6. القائمة الجانبية
+   ----------------------------------------------------- */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(
+        180deg,
+        #091729 0%,
+        #0d223a 60%,
+        #071322 100%
+    ) !important;
+
+    border-left: 1px solid #1a365d !important;
+    min-width: 280px !important;
+
+    box-shadow:
+        -4px 0 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span:not(button span),
+section[data-testid="stSidebar"] div:not(button div) {
+    color: #e2e8f0 !important;
+}
+
+
+/* حاوية شعار القائمة الجانبية */
+.sidebar-brand-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 1.8rem 1rem 1.4rem 1rem;
+    margin-bottom: 0.8rem;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* أيقونة الشعار */
+.sidebar-brand-logo {
+    font-size: 3.2rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+
+    filter: drop-shadow(
+        0 4px 12px rgba(56, 189, 248, 0.35)
+    );
+}
+
+
+/* عنوان النظام في القائمة الجانبية */
+.sidebar-brand-title {
+    color: #ffffff !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.2px;
+
+    margin: 0 0 0.4rem 0 !important;
+    text-align: center !important;
+    width: 100%;
+}
+
+
+/* العبارة التعريفية أسفل الشعار */
+.sidebar-brand-badge {
+    display: inline-block;
+
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+
+    border-radius: 20px;
+    padding: 0.25rem 0.9rem;
+
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+
+/* معلومات أسفل القائمة الجانبية */
+.sidebar-footer {
+    text-align: center !important;
+}
+
+.sidebar-footer-icon {
+    font-size: 1.4rem;
+    color: #38bdf8 !important;
+    text-align: center !important;
+}
+
+.sidebar-footer-caption {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin: 0.4rem 0;
+}
+
+
+/* -----------------------------------------------------
+   7. أزرار القائمة الجانبية غير النشطة
+   ----------------------------------------------------- */
+section[data-testid="stSidebar"] div.stButton > button[kind="secondary"] {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+
+    padding: 0.75rem 1.1rem !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.06) !important;
+
+    transition: all 0.2s ease-in-out !important;
+}
+
+section[data-testid="stSidebar"] div.stButton > button[kind="secondary"] * {
+    color: #091729 !important;
+    font-weight: 700 !important;
+    font-size: 0.98rem !important;
+}
+
+section[data-testid="stSidebar"] div.stButton > button[kind="secondary"]:hover {
+    background-color: #f0f7ff !important;
+    border-color: #0284c7 !important;
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 4px 12px rgba(2, 132, 199, 0.2) !important;
+}
+
+section[data-testid="stSidebar"] div.stButton > button[kind="secondary"]:hover * {
+    color: #0284c7 !important;
+}
+
+
+/* -----------------------------------------------------
+   8. الزر النشط في القائمة الجانبية
+   ----------------------------------------------------- */
+section[data-testid="stSidebar"] div.stButton > button[kind="primary"] {
+    background: linear-gradient(
+        90deg,
+        #0284c7 0%,
+        #0369a1 100%
+    ) !important;
+
+    border: 1px solid #38bdf8 !important;
+    border-radius: 12px !important;
+
+    padding: 0.75rem 1.1rem !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
+
+    box-shadow:
+        0 6px 18px rgba(2, 132, 199, 0.45) !important;
+}
+
+section[data-testid="stSidebar"] div.stButton > button[kind="primary"] * {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 0.98rem !important;
+}
+
+
+/* -----------------------------------------------------
+   9. صندوق رفع الملفات
+   ----------------------------------------------------- */
+[data-testid="stFileUploader"] {
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: #ffffff !important;
+    border: 2px dashed #0284c7 !important;
+    border-radius: 16px !important;
+
+    padding: 2.2rem 1.5rem !important;
+    text-align: center !important;
+
+    box-shadow:
+        0 4px 16px rgba(2, 132, 199, 0.06) !important;
+
+    transition: all 0.25s ease !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    background: #f0f9ff !important;
+    border-color: #0369a1 !important;
+
+    box-shadow:
+        0 8px 24px rgba(2, 132, 199, 0.12) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] div {
+    text-align: center !important;
+    direction: rtl !important;
+}
+
+[data-testid="stFileUploaderDropzone"] button {
+    background: linear-gradient(
+        90deg,
+        #0284c7 0%,
+        #0369a1 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border-radius: 10px !important;
+
+    padding: 0.55rem 1.4rem !important;
+    border: none !important;
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 4px 10px rgba(2, 132, 199, 0.25) !important;
+}
+
+[data-testid="stFileUploaderFileData"] {
+    background-color: #ffffff !important;
+    border: 1px solid #bae6fd !important;
+    border-radius: 12px !important;
+
+    padding: 12px 18px !important;
+    margin-top: 15px !important;
+}
+
+
+/* -----------------------------------------------------
+   10. الحاويات العامة
+   ----------------------------------------------------- */
+div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: 18px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #dbeafe !important;
+
+    box-shadow:
+        0 6px 28px rgba(15, 23, 42, 0.07) !important;
+
+    transition:
+        transform 0.22s cubic-bezier(.22, .68, 0, 1.2),
+        box-shadow 0.22s ease !important;
+
+    overflow: hidden !important;
+}
+
+div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    transform: translateY(-4px) !important;
+    border-color: #93c5fd !important;
+
+    box-shadow:
+        0 14px 36px rgba(2, 132, 199, 0.14) !important;
+}
+
+
+/* -----------------------------------------------------
+   11. بطاقات الصفحة الرئيسية
+   ----------------------------------------------------- */
+.dash-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 2px solid #dbeafe;
+
+    box-shadow:
+        0 6px 28px rgba(15, 23, 42, 0.07);
+
+    padding: 1.6rem 1.5rem 1.3rem 1.5rem;
+
+    transition:
+        transform 0.25s cubic-bezier(.22, .68, 0, 1.2),
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+/* الشريط الملون أعلى البطاقة */
+.dash-card::before {
+    content: '';
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 5px;
+    border-radius: 18px 18px 0 0;
+
+    transition: height 0.25s ease;
+}
+
+
+/* لون بطاقة المستندات */
+.dash-card-documents::before {
+    background: linear-gradient(
+        90deg,
+        #0284c7,
+        #38bdf8
+    );
+}
+
+
+/* لون بطاقة الفحص */
+.dash-card-scan::before {
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #818cf8
+    );
+}
+
+
+/* لون بطاقة التعتيم */
+.dash-card-masking::before {
+    background: linear-gradient(
+        90deg,
+        #0f766e,
+        #2dd4bf
+    );
+}
+
+
+/* لون بطاقة التقرير */
+.dash-card-report::before {
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #a78bfa
+    );
+}
+
+
+/* تأثير مرور المؤشر على البطاقة */
+.dash-card:hover {
+    transform: translateY(-7px) scale(1.015);
+
+    background: linear-gradient(
+        160deg,
+        #f0f9ff 0%,
+        #e0f2fe 60%,
+        #f8faff 100%
+    ) !important;
+
+    border-color: #0284c7 !important;
+
+    box-shadow:
+        0 20px 45px rgba(2, 132, 199, 0.20),
+        0 0 0 1px rgba(2, 132, 199, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.dash-card:hover::before {
+    height: 8px;
+}
+
+
+/* الإضاءة الخفيفة داخل البطاقة */
+.dash-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    border-radius: 18px;
+
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgba(2, 132, 199, 0.06) 0%,
+        transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.dash-card:hover::after {
+    opacity: 1;
+}
+
+
+/* أيقونة البطاقة */
+.dash-card-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+    margin-bottom: 0.9rem;
+    display: block;
+
+    transition:
+        transform 0.25s cubic-bezier(.22, .68, 0, 1.4);
+}
+
+.dash-card:hover .dash-card-icon {
+    transform: scale(1.18) rotate(-4deg);
+}
+
+
+/* عنوان البطاقة */
+.dash-card-title {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+
+    margin: 0 0 0.45rem 0 !important;
+    letter-spacing: -0.2px;
+
+    transition: color 0.2s ease;
+}
+
+.dash-card:hover .dash-card-title {
+    color: #0369a1 !important;
+}
+
+
+/* وصف البطاقة */
+.dash-card-desc {
+    font-size: 0.88rem !important;
+    color: #475569 !important;
+    line-height: 1.65 !important;
+
+    margin: 0 0 1.1rem 0 !important;
+    flex-grow: 1;
+
+    transition: color 0.2s ease;
+}
+
+.dash-card:hover .dash-card-desc {
+    color: #334155 !important;
+}
+
+
+/* -----------------------------------------------------
+   12. الأزرار الرئيسية
+   ----------------------------------------------------- */
+div.stButton > button[kind="primary"] {
+    background: linear-gradient(
+        135deg,
+        #1d4ed8 0%,
+        #2563eb 50%,
+        #3b82f6 100%
+    ) !important;
+
+    border: none !important;
+    border-radius: 14px !important;
+
+    padding: 0.85rem 2rem !important;
+
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.3px !important;
+    color: #ffffff !important;
+
+    box-shadow:
+        0 6px 22px rgba(29, 78, 216, 0.40) !important;
+
+    transition: all 0.22s ease !important;
+}
+
+div.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(
+        135deg,
+        #1e40af 0%,
+        #1d4ed8 50%,
+        #2563eb 100%
+    ) !important;
+
+    box-shadow:
+        0 10px 30px rgba(29, 78, 216, 0.55) !important;
+
+    transform: translateY(-3px) scale(1.02) !important;
+}
+
+div.stButton > button[kind="primary"]:active {
+    transform: translateY(0px) scale(0.99) !important;
+
+    box-shadow:
+        0 4px 12px rgba(29, 78, 216, 0.35) !important;
+}
+
+
+/* -----------------------------------------------------
+   13. ألوان أزرار الأعمدة
+   ----------------------------------------------------- */
+div[data-testid="column"]:nth-child(1) div.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #0284c7 0%,
+        #38bdf8 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+
+    font-weight: 700 !important;
+    padding: 0.6rem 1rem !important;
+
+    box-shadow:
+        0 4px 14px rgba(2, 132, 199, 0.3) !important;
+
+    transition:
+        filter 0.18s ease,
+        transform 0.15s ease !important;
+}
+
+div[data-testid="column"]:nth-child(2) div.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #6366f1 0%,
+        #818cf8 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+
+    font-weight: 700 !important;
+    padding: 0.6rem 1rem !important;
+
+    box-shadow:
+        0 4px 14px rgba(99, 102, 241, 0.3) !important;
+
+    transition:
+        filter 0.18s ease,
+        transform 0.15s ease !important;
+}
+
+div[data-testid="column"]:nth-child(3) div.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #0f766e 0%,
+        #2dd4bf 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+
+    font-weight: 700 !important;
+    padding: 0.6rem 1rem !important;
+
+    box-shadow:
+        0 4px 14px rgba(15, 118, 110, 0.3) !important;
+
+    transition:
+        filter 0.18s ease,
+        transform 0.15s ease !important;
+}
+
+div[data-testid="column"]:nth-child(4) div.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #7c3aed 0%,
+        #a78bfa 100%
+    ) !important;
+
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+
+    font-weight: 700 !important;
+    padding: 0.6rem 1rem !important;
+
+    box-shadow:
+        0 4px 14px rgba(124, 58, 237, 0.3) !important;
+
+    transition:
+        filter 0.18s ease,
+        transform 0.15s ease !important;
+}
+
+
+/* تأثير مرور المؤشر على أزرار الأعمدة */
+div[data-testid="column"] div.stButton > button:hover {
+    filter: brightness(1.12) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+
+    background: linear-gradient(
+        90deg,
+        #0369a1 0%,
+        #0284c7 50%,
+        #38bdf8 100%
+    ) !important;
+
+    box-shadow:
+        0 8px 22px rgba(2, 132, 199, 0.45) !important;
+}
+
+
+/* -----------------------------------------------------
+   14. بنر عناوين الصفحات
+   ----------------------------------------------------- */
+.tech-banner {
+    background: linear-gradient(
+        135deg,
+        #0f2744 0%,
+        #0369a1 100%
+    );
+
+    border-radius: 18px;
+    padding: 1.8rem 2.2rem;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 25px rgba(3, 105, 161, 0.25);
+
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tech-banner-title {
+    font-size: 1.7rem;
+    font-weight: 800;
+
+    margin: 0 0 0.35rem 0;
+    color: #ffffff;
+}
+
+.tech-banner-sub {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #e0f2fe;
+    opacity: 0.95;
+}
+
+.tech-banner-icon {
+    font-size: 3rem;
+    opacity: 0.9;
+}
+
+
+/* -----------------------------------------------------
+   15. رسائل عدم وجود مستند أو تقرير
+   ----------------------------------------------------- */
+.empty-state {
+    text-align: center !important;
+    padding: 3rem 1.5rem;
+}
+
+.empty-state-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.empty-state-title {
+    color: #0f172a;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+}
+
+.empty-state-description {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+}

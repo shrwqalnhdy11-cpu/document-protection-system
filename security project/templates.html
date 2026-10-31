@@ -1,0 +1,82 @@
+<!-- إدراج محتوى ملف CSS الذي يقرأه Streamlit -->
+ 
+<template id="styles">
+<style>
+$css
+</style>
+</template>
+
+
+<!-- شعار وعنوان القائمة الجانبية -->
+<template id="sidebar_brand">
+<div class="sidebar-brand-box">
+    <div class="sidebar-brand-logo">🛡️</div>
+
+    <div class="sidebar-brand-title">
+        نظام حماية المستندات
+    </div>
+
+    <div class="sidebar-brand-badge">
+        أمان معلوماتك مسؤوليتنا
+    </div>
+</div>
+</template>
+
+
+<!-- معلومات أسفل القائمة الجانبية -->
+<template id="sidebar_footer">
+<div class="sidebar-footer">
+    <div class="sidebar-footer-icon">🛡️</div>
+
+    <p class="sidebar-footer-caption">
+        واجهة نظام التشفير وحماية الخصوصية
+    </p>
+
+    <p class="sidebar-footer-caption">
+        Python • Streamlit Framework
+    </p>
+</div>
+</template>
+
+
+<!-- بنر موحد لعناوين الصفحات -->
+<template id="banner">
+<div class="tech-banner">
+    <div>
+        <div class="tech-banner-title">$title</div>
+        <div class="tech-banner-sub">$subtitle</div>
+    </div>
+
+    <div class="tech-banner-icon">$icon</div>
+</div>
+</template>
+
+
+<!-- قالب بطاقات الصفحة الرئيسية -->
+<template id="card">
+<div class="dash-card $card_class">
+    <span class="dash-card-icon">$icon</span>
+
+    <div class="dash-card-title">$title</div>
+
+    <div class="dash-card-desc">$description</div>
+</div>
+</template>
+
+
+<!-- رسالة تظهر عند عدم وجود مستند أو تقرير -->
+<template id="empty_state">
+<div class="empty-state">
+    <div class="empty-state-icon">$icon</div>
+
+    <h3 class="empty-state-title">$title</h3>
+
+    <p class="empty-state-description">$description</p>
+</div>
+</template>
+
+
+<!-- مساحة فاصلة بين عناصر الواجهة -->
+<template id="spacer">
+<div style="height: ${height}px;"></div>
+</template>
